@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="icon" href="{{ url_for('static', filename='formula.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card {
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card-text {
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .card:hover .card-text {
+            background-color: #f8f9fa;
+            color: #007bff;
+        }
+        /* Установим фиксированные размеры для изображений карточек */
+        .card-img-top {
+            width: 100%; /* Ширина изображения - 100% карточки */
+            height: 400px; /* Высота изображения фиксированная */
+            object-fit: cover; /* Обеспечивает сохранение соотношения сторон без искажения */
+        }
+           .carousel-item img {
+        max-width: 75%;
+        margin: auto;
+    }
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: black;
+            border-radius: 50%;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            color: black; /* Устанавливаем черный цвет для стрелок */
+        }
+        h1 {
+            margin-bottom: 20px; /* Отступ снизу для заголовка */
+        }
+        audio {
+            outline: none; /* Убрать контур (underline) вокруг плеера */
+        }
+
+        h1 {
+            margin-bottom: 20px; /* Отступ между заголовком и текстом */
+            font-size: 2.5em; /* Размер шрифта заголовка */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            text-align: center; /* Центровка текста */
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Formula-1</a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}">Главная</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">О нас</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('moments') }}">Интересные моменты</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('authorization') }}">Вход</a></li>
+        </ul>
+    </div>
+</nav>
+<p></p>
+<h1> FORMULA-1 </h1>
+<p></p>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{{ url_for('static', filename='images/6.jpg') }}" class="d-block w-100" alt="Слайд 1">
+        </div>
+        <div class="carousel-item">
+            <img src="{{ url_for('static', filename='images/3.jpg') }}" class="d-block w-100" alt="Слайд 2">
+        </div>
+        <div class="carousel-item">
+            <img src="{{ url_for('static', filename='images/2.jpg') }}" class="d-block w-100" alt="Слайд 3">
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Предыдущий</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Следующий</span>
+    </a>
+</div>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/7.jpg') }}" class="card-img-top" alt="Карточка 1">
+                <div class="card-body">
+                    <h5 class="card-title">Михаэль Шумахер</h5>
+                    <p class="card-text"> Михаэль Шумахер — немецкий автогонщик «Формулы-1», один из самых успешных пилотов в истории этого спорта.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/9.jpg') }}" class="card-img-top" alt="Карточка 2">
+                <div class="card-body">
+                    <h5 class="card-title">Айртон Сенна Да Силва</h5>
+                    <p class="card-text">Айртон Сенна Да Силва — бразильский автогонщик, трёхкратный чемпион автогонок в классе «Формула-1».</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/8.jpg') }}" class="card-img-top" alt="Карточка 3">
+                <div class="card-body">
+                    <h5 class="card-title">Ален Прост</h5>
+                    <p class="card-text">Ален Прост — французский автогонщик, один из лучших пилотов в истории Формулы-1.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div id="accordion">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        За что любят «Формулу-1»
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                <div class="card-body">
+                    В «Формуле-1» одни из самых быстрых автомобилей в мире.
+                    Гонщики могут разогнаться до 300 км/ч — и не просто разогнаться,
+                    а ехать на такой скорости большую часть круга. Войти в поворот на сотне и выше,
+                    мчать и не бояться попасть в аварию. Поэтому Ф-1 — это про власть человека над страхом,
+                    когда он рискует всем ради победы. Это страсть, которую сложно описать словами,
+                    но можно увидеть на кадрах трансляции и в глазах гонщика после финиша.
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Главные термины «Формулы-1»
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                    Гоночный уик-энд — пятница, суббота и воскресенье,
+                    во время которых проходят заезды в виде трех тренировок, квалификации и гонки.
+
+                    Пит-лейн — участок трассы, куда болиды заезжают
+                    для смены комплекта резины или ремонта, если во время гонки произошла поломка.
+
+                    Поул-позиция — первое стартовое место в гонке.
+
+                    Пит-стоп — смена резины во время гонки.
+
+                    Слики — тип резины с гладкой поверхностью для сухой погоды.
+                    Сейчас в «Формуле-1» три разновидности сликов: софт — самая мягкая резина,
+                    хард — самая жесткая, медиум — нечто среднее. Они обозначаются красным,
+                    белым и желтым ободком соответственно.
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        За какими командами стоит следить
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseThree" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                    «Ред Булл» и «Мерседес». Доминирующие коллективы,
+                    на счету которых немало побед.
+                    Чемпионами мира становились шесть гонщиков «Ред Булла»
+                    и семь — «Мерседеса».
+
+                    «Феррари». Легендарная конюшня из Маранелло, которая представлена в «Формуле-1» с 1950 года.
+                    Команда с наибольшим числом Кубков конструкторов за всю историю серии,
+                    в ее составе выступали легендарные чемпионы — Михаэль Шумахер, Ники Лауда,
+                    Альберто Аскари и многие другие. Эту команду любят болельщики во всем мире —
+                    и, несмотря на непростые годы и досадные ошибки, продолжают верить в ее возвращение на первое место.
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="text-center mt-4">
+    <p>© 2024 Formula-1. I belive I can fly/</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

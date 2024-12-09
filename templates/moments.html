@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Моменты Formula-1</h2>
+<div class="gallery">
+    <div class="gallery-item">
+        <img src="{{ url_for('static', filename='images/11.jpg') }}" class="img-fluid" alt="Moment 2">
+    </div>
+    <div class="gallery-item">
+        <img src="{{ url_for('static', filename='images/5.jpg') }}" class="img-fluid" alt="Moment 3">
+    </div>
+    <div class="gallery-item">
+        <img src="{{ url_for('static', filename='images/4.jpg') }}" class="img-fluid" alt="Moment 5">
+    </div>
+    <div class="gallery-item">
+        <img src="{{ url_for('static', filename='images/1.jpg') }}" class="img-fluid" alt="Moment 6">
+    </div>
+</div>
+<style>
+           .gallery {
+               margin: 20px;
+           }
+           .gallery img {
+               width: 100%;
+               height: auto;
+               margin-bottom: 15px;
+           }
+       </style>
+   </head>
+       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}
